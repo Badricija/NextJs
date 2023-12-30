@@ -1,0 +1,38 @@
+.linkBlog {
+    background-color: #57493F;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-right: 185px;
+    margin-left: 185px;
+    margin-bottom: 20px;
+     
+  }
+  .linkBlog:hover {
+    background-color: #392C25;
+    color: #9C8568;
+    opacity: 60%;
+  }
+.link {
+    text-decoration: none;
+    color: inherit;
+    color: #c5a784;
+    display: flex;
+    padding: 5px;
+    font-size: 30px;
+
+}
+.picture {
+    border-radius: 10px;
+  }
+
+  .tag {
+    text-decoration: none;
+    color: inherit; 
+    border: 1px solid #9C8568;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: #9C8568;
+    color: #392C25;
+
+}

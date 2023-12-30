@@ -1,0 +1,40 @@
+.navBar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 60px;
+    grid-column-gap: 040px;
+    grid-row-gap: 0px;
+    }
+    
+    .title { grid-area: 1 / 1 / 2 / 2; }
+    .link1 { grid-area: 1 / 2 / 2 / 3; }
+    .link2 { grid-area: 1 / 3 / 2 / 4; }
+    .link3 { grid-area: 1 / 4 / 2 / 5; }
+    .link4 { grid-area: 1 / 5 / 2 / 6; }
+
+.link1, .link2, .link3, .link4 {
+    text-decoration: none;
+    color: inherit;
+    background-color: #57493F ;
+    border: 4px solid #4d4138;
+    color: #9d8d7a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+
+    
+}
+.link1:hover, .link2:hover, .link3:hover, .link4:hover {
+    opacity: 0.5;
+    background-color: #9C8568;
+    border: 4px solid #8b765b;
+    color: white;
+}
+.title {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
