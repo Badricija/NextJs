@@ -1,9 +1,17 @@
-import connect from "../../../../../../db";
-import Post from "../../../../../../models/Posts";
-import type { NextRequest } from "next/server";
+import connect from "../../../../../../lib/mongo/db";
+import Post from "../../../../../../lib/models/Posts";
 import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest, { params }: { params: { tag: string } }) {
+type ParamsType = {
+  tag: string;
+};
+
+export const dynamic = "force-dynamic";
+
+export async function GET(
+  _request: Request,
+  { params }: { params: ParamsType },
+) {
   const { tag } = params;
   await connect();
 

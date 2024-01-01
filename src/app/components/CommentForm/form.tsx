@@ -1,39 +1,43 @@
 "use client";
 
-import style from "./comentform.module.css";
+import style from "./form.module.css";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-interface CommentFormProps {
-	blogId: string;
-}
-const CommentForm: React.FC<CommentFormProps> = ({ blogId }) => {
-	const router = useRouter();
-	const [author, setAuthor] = useState("");
-	const [comment, setComment] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		setIsLoading(true);
-		const submitComment = {
-			blogId,
-			comment,
-			author,
-		};
-		const res = await fetch("http://localhost:3000/api/posts/comments", {
+const CommentForm = ({ blogId }: { blogId: string }) => {
+    const router = useRouter();
+  
+    const [author, setAuthor] = useState("");
+    const [comment, setComment] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+  
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setIsLoading(true);
+  
+      const submitComment = {
+        blogId,
+        comment,
+        author,
+      };
+  
+      const res = await fetch("http://localhost:3000/api/posts/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submitComment),
     });
-		if (res.status === 201) {
-			setIsLoading(false);
-			router.push(`/blogs/${blogId}`);
-			router.refresh();
-		} else {
-			setIsLoading(false);
-		}
-	};
-
+  
+      if (res.status === 201) {
+        setAuthor("");
+        setComment("");
+        setIsLoading(false);
+  
+        router.push(`/blogs/${blogId}`);
+        router.refresh();
+      } else {
+        setIsLoading(false);
+      }
+    };
 	return (
 		<div className={style.wrapper}>
 			<form onSubmit={handleSubmit} className={style.form}>

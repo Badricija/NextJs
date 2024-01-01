@@ -16,7 +16,9 @@ export interface IPost extends Document {
   blog3description: string;
   blog3title: string;
   blog3image: string;
-  comments: mongoose.Types.ObjectId[];
+  comments: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 const postSchema: Schema = new Schema(
@@ -73,16 +75,10 @@ const postSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    comments: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Comment',
-    }],
   },
   { timestamps: true }
 );
-postSchema.virtual('url').get(function(){
-  return '/blogs/' + this._id
-})
+
 let Post: Model<IPost>;
 try {
   Post = model<IPost>("Post");

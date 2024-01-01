@@ -1,20 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import { IPost } from "../../../models/Posts";
+import { IPost } from "../../../lib/models/Posts";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 const getPosts = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/posts", {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error("Failed to fetch blogs");
-    }
-    return res.json();
-  } catch (error) {
-    console.log("Error loading blogs: ", error);
-  }
+	try {
+		const res = await fetch("http://localhost:3000/api/posts", {
+			cache: "no-store",
+		});
+		if (!res.ok) {
+			throw new Error("Failed to fetch blogs");
+		}
+		return res.json();
+	} catch (error) {
+		console.log("Error loading blogs: ", error);
+	}
 };
 
 
