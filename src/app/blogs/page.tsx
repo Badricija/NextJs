@@ -39,9 +39,11 @@ const PostList = async () => {
 					<Link href={`/blogs/tags/${post.tag}`} className={styles.tag}>
 						<span className="button">{post.tag}</span>
 					</Link>
+					<span className={styles.created}>{post.createdAt}</span>
+					<span className={styles.updated}>{post.updatedAt}</span>
 				</div>
 			))}
-			{[posts].length === 0 && <p>There are no available blogs...</p>}
+			{[posts].length === 0 && <p> What? Where are blogs?</p>}
 		</>
 	);
 };

@@ -29,51 +29,39 @@ const postSchema: Schema = new Schema(
     },
     description: {
       type: String,
-      required: true,
     },
     image: {
       type: String,
-      required: true,
     },
     blog1description: {
       type: String,
-      required: true,
     },
     blog1title: {
       type: String,
-      required: true,
     },
     blog1image: {
       type: String,
-      required: true,
     },
     blog2description: {
       type: String,
-      required: true,
     },
     blog2title: {
       type: String,
-      required: true,
     },
     blog2image: {
       type: String,
-      required: true,
     },
     blog3description: {
       type: String,
-      required: true,
     },
     blog3title: {
       type: String,
-      required: true,
     },
     blog3image: {
       type: String,
-      required: true,
     },
     tag: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true }

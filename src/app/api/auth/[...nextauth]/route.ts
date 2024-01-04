@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { NextApiHandler } from "next";
 import { loginUser } from "../../../../../lib/services/auth";
 
-interface Credentials {
+export interface Credentials {
   email: string;
   password: string;
   username: string;
@@ -28,9 +28,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  // pages: {
-  //   signIn: "/signin",
-  // },
+   pages: {
+     signIn: "http://localhost:3000/admin",
+   },
 
   secret: process.env.NEXTAUTH_SECRET,
 

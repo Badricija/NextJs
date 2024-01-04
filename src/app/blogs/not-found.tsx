@@ -5,7 +5,7 @@ export default function notFound() {
 		<>
 			<h2>404 Not Found</h2>
 			<p>
-				There is no page that you are looking for, or you went to strange link
+				You went to strange place. Check the link or go back and try again.
 			</p>
 			<p>
 				Click here to go back to <Link href={"/Blogs"}>Blogs</Link>

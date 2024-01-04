@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 import CommentForm from "../../components/CommentForm/form";
+import { format } from "date-fns";
+
 type CommentType = {
 	_id: string;
 	author: string;
 	comment: string;
+	createdAt: string;
 };
 
 const getPost = async (id: string) => {
@@ -76,22 +79,26 @@ const PostDetails = async ({ params: { id } }: { params: { id: string } }) => {
 							className={styles.picture}
 						/>
 						<p className="blog-p">{postInfo.post.blog3description}</p>
+						<span className={styles.created}>{postInfo.post.createdAt}</span>
 					</div>
 					<div>
 						{postInfo.comments.map((com: CommentType) => (
 							<div key={com._id} className={styles.comcard}>
 								<h3 className={styles.author}>{com.author}</h3>
 								<p className={styles.comment}>{com.comment}</p>
+								<span className={styles.created}>
+									{com.createdAt}
+								</span>
 							</div>
 						))}
 						{postInfo.comments.length === 0 && (
 							<p className={styles.noComment}>
-								There are no comments yet , you can be the first...
+								You can be the first to write a comment.
 							</p>
 						)}
 					</div>
 					<div>
-							<CommentForm blogId={""} />
+						<CommentForm blogId={id} />
 					</div>
 				</main>
 			</div>
