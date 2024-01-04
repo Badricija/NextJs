@@ -1,15 +1,10 @@
-
-import { getServerSession } from "next-auth/next";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Link from "next/link";
-import AddBlog from "@/app/admin/options/addblog/Addblog";
-import AdminPage from "@/app/admin/page";
+import styles from "./page.module.css"
 
 const ServerProtectedPage = async () => {
   return (
     <>
-      <Link href="/admin">Click here to get on Admin side</Link>
+      <Link href="/admin" className={styles.link}>Click here to get on Admin side</Link>
     </>
   )
 };

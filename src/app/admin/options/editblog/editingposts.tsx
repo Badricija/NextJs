@@ -36,7 +36,7 @@ const EditPostList = async () => {
 							/>
 						</div>
 					</Link>
-					<Link href="http://localhost:3000/admin/options/editblog/singleview">Click here to edit in single view</Link>
+					<Link href="http://localhost:3000/admin/options/editblog/singleview" className={styles.link}>Click here to edit in single view</Link>
 				</div>
 			))}
 			{[posts].length === 0 && <p> What? Where are blogs?</p>}

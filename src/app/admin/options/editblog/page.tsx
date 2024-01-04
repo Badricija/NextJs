@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import EditPostList from "./editingposts";
+import styles from "./page.module.css"
 
 const getBlog = async () => {
     try {
@@ -21,7 +22,7 @@ const EditBlog = () => {
 
     return (
         <div>
-            <Link href={"/admin"}>Admin Home</Link>
+            <Link href={"/admin"} className={styles.link}>Admin Home</Link>
             <h2> Choose the blog you want to edit</h2>
             <EditPostList />
         </div>

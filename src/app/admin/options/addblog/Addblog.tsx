@@ -64,8 +64,8 @@ const AddBlog = () => {
 
 	return (
 		<div className={styles.blog}>
+			<h1 className={styles.title}>Add New Blog</h1>
 			<form className={styles.form} onSubmit={handleSubmit}>
-				<h1 className={styles.title}>Add New Blog</h1>
 				<div className={styles.item}>
 					<label className={styles.label}>Please add your title</label>
 					<input
@@ -210,7 +210,6 @@ const AddBlog = () => {
 						placeholder="Enter the image URL for Blog 1"
 					/>
 				</div>
-				
 				<button className={styles.button} disabled={isLoading}>
 									{isLoading && <span>Adding...</span>}
 									{!isLoading && <span>Add Form</span>}

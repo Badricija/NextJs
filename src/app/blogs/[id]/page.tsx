@@ -68,9 +68,9 @@ const PostDetails = async ({ params: { id } }: { params: { id: string } }) => {
 								there are no tags
 							</p>
 						)}
-						<div>
+						{/*<div>
 							<TagForm blogId={id}/>
-						</div>
+						</div>*/}
 					</div>
 					<div className={styles.concept}>
 						<h3 className={styles.titleH3}>{postInfo.post.blog1title}</h3>

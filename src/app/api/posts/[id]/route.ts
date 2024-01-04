@@ -4,6 +4,7 @@ import Post from "../../../../../lib/models/Posts";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import Comment from "../../../../../lib/models/Comment";
+import Tag from "../../../../../lib/models/Tags";
 
 export async function GET(request, { params }) {
   const { id } = params;
@@ -15,6 +16,9 @@ export async function GET(request, { params }) {
   const comments = await Comment.find({ blogId: objectId }).sort({
     createdAt: -1,
   });
+  const tags = await Tag.find({ blogId: objectId }).sort({
+    createdAt: -1,
+  });
 
-  return NextResponse.json({ post, comments }, { status: 200 });
+  return NextResponse.json({ post, comments, tags }, { status: 200 });
 }

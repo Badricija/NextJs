@@ -33,3 +33,12 @@
     border: none;
     font-size: 18px; 
 }
+.button { 
+    background-color: #8d7a70;
+    color: #493722;
+    border-radius: 10px;
+    padding: 6px;
+    border: none;
+
+
+}
