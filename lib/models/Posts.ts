@@ -2,7 +2,6 @@ import mongoose, { Document, Schema, model, Model } from "mongoose";
 
 
 export interface IPost extends Document {
-  tag: string;
   _id?: string;
   title: string;
   description: string;
@@ -25,7 +24,6 @@ const postSchema: Schema = new Schema(
   {
     title: {
       type: String,
-      required: true,
     },
     description: {
       type: String,
@@ -60,9 +58,7 @@ const postSchema: Schema = new Schema(
     blog3image: {
       type: String,
     },
-    tag: {
-      type: String,
-    },
+    
   },
   { timestamps: true }
 );

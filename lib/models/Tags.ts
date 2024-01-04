@@ -1,17 +1,27 @@
 import mongoose, { Document } from "mongoose";
-const TagSchema = new mongoose.Schema({
-	tag: {
-		type: String,
-		required: true,
-	},
-});
+
+const TagSchema = new mongoose.Schema(
+  {
+    blogId: {
+      type: String,
+      required: true,
+    },
+    tag: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
+
 export interface ITag extends Document {
-	_id: string;
-	blogId: string;
-	tag: string;
-	createdAt?: string;
-	updatedAt?: string;
+  _id?: string;
+  blogId: string;
+  tag: string;
 }
+
 let TagModel: mongoose.Model<ITag>;
 
 try {

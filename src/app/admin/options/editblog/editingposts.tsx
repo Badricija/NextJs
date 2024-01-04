@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { IPost } from "../../../lib/models/Posts";
+import { IPost } from "../../../../../lib/models/Posts";
 import Link from "next/link";
-import styles from "./page.module.css";
+import styles from "./editingposts.module.css";
 
 const getPosts = async () => {
 	try {
@@ -18,7 +18,7 @@ const getPosts = async () => {
 };
 
 
-const PostList = async () => {
+const EditPostList = async () => {
 	const posts = await getPosts();
 
 	return (
@@ -36,6 +36,7 @@ const PostList = async () => {
 							/>
 						</div>
 					</Link>
+					<Link href="http://localhost:3000/admin/options/editblog/singleview">Click here to edit in single view</Link>
 				</div>
 			))}
 			{[posts].length === 0 && <p> What? Where are blogs?</p>}
@@ -43,4 +44,4 @@ const PostList = async () => {
 	);
 };
 
-export default PostList;
+export default EditPostList;

@@ -1,29 +1,17 @@
-"use client"
-import SigninForm from "../components/signin/signinform";
-import { useRouter } from 'next/navigation';
-import { Credentials } from "../api/auth/[...nextauth]/route"; 
-import { signIn } from "next-auth/react";
+import React from "react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Options from "./options/page"
 
-const AdminPage = () => {
-    const router = useRouter();
+const adminPanel = async () => {
+  const session = await getServerSession(authOptions);
 
-    const handleLogin = async (email: string, password: string) => {
-        const result = await signIn("credentials", {
-            redirect: false,
-            email,
-            password
-        });
-        if (!result?.error) {
-            router.push('/admin/options');
-        } else {
-        }
-    }
+  return (
+    <div>
+      <div>Hi, {session?.user.username ?? "friend"}</div>
+        <Options />
+    </div>
+  );
+};
 
-    return (
-        <>
-            <SigninForm onLogin={handleLogin} />
-        </>
-    );
-}
-
-export default AdminPage;
+export default adminPanel;

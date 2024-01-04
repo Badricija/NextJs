@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form {
+    
+    border: 4px solid #635c56;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #635c56;
+    width: 800px;
+}
+.heading {
+    font-size: 35px;
+}
+.label {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+.input{
+    width: 600px;
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 18px;
+    
+}
+.textarea {
+    width: 600px;
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 18px; 
+}

@@ -1,12 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import styles from "./page.module.css";
-import CommentForm from "../../components/CommentForm/form";
-import TagForm from "@/app/components/tagform/form";
-type TagType = {
-	_id: string;
-	tag: string;
-};
 
 type CommentType = {
 	_id: string;
@@ -27,24 +23,14 @@ const getPost = async (id: string) => {
 
 		const Datas = await res.json();
 
-		const { post, comments, tags } = Datas;
-		return { 
-			post: post || {}, 
-			comments: Array.isArray(comments) ? comments : [], 
-			tags: Array.isArray(tags) ? tags : [] 
-		};
+		const { post, comments } = Datas;
+		return { post: post, comments: comments };
 	} catch (error) {
 		console.log("Error loading blog: ", error);
-		return {
-			post: {},
-			comments: [],
-			tags: []
-		};
 	}
 };
 
-
-const PostDetails = async ({ params: { id } }: { params: { id: string } }) => {
+const SingleViewEdit = async ({ params: { id } }: { params: { id: string } }) => {
 	const postInfo = await getPost(id);
 
 	if (!postInfo) {
@@ -57,21 +43,12 @@ const PostDetails = async ({ params: { id } }: { params: { id: string } }) => {
 					<h2 className={styles.title}>{postInfo.post.title}</h2>
 
 					<p className="blog-p">{postInfo.post.description}</p>
-					<div>
-						{postInfo.tags.map((tag: TagType) => (
-							<div key={tag._id} className={styles.tag}>
-								<h3 className={styles.name}>{tag.tag}</h3>
-							</div>
-						))}
-						{postInfo.tags.length === 0 && (
-							<p className={styles.notag}>
-								there are no tags
-							</p>
-						)}
-						<div>
-							<TagForm blogId={id}/>
-						</div>
-					</div>
+					<Link
+						href={`/blogs/tags/${postInfo.post.tag}`}
+						className={styles.tag}
+					>
+						<span>{postInfo.post.tag}</span>
+					</Link>
 					<div className={styles.concept}>
 						<h3 className={styles.titleH3}>{postInfo.post.blog1title}</h3>
 						<img
@@ -119,14 +96,10 @@ const PostDetails = async ({ params: { id } }: { params: { id: string } }) => {
 							</p>
 						)}
 					</div>
-					
-					<div>
-						<CommentForm blogId={id} />
-					</div>
 				</main>
 			</div>
 		</>
 	);
 };
 
-export default PostDetails;
+export default SingleViewEdit;

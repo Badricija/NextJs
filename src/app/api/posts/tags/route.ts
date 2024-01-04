@@ -1,11 +1,12 @@
-import connect from "../../../../../lib/mongo/db";
-import Post from "../../../../../lib/models/Posts";
 import { NextResponse } from "next/server";
+import connect from "../../../../../lib/mongo/db";
+import Tag from "../../../../../lib/models/Tags";
 
-export async function GET() {
+
+
+export async function POST(request: Request) {
+  const { blogId, tag } = await request.json();
   await connect();
-
-  const allTags = await Post.distinct("tag");
-
-  return NextResponse.json({ tags: allTags });
+  await Tag.create({ blogId, tag});
+  return NextResponse.json({ message: " created" }, { status: 201 });
 }

@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Link from "next/link";
-import AddBlog from "@/app/admin/options/addblog/page";
+import AddBlog from "@/app/admin/options/addblog/Addblog";
 import AdminPage from "@/app/admin/page";
 
 const ServerProtectedPage = async () => {
