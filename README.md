@@ -15,12 +15,12 @@ NEXT AUTH :
 Lokālā Authentifikācija 
 
 E-pasts un parole
-// http://localhost:3000/api/auth/signin
-// admin@test.com
-// password
+- http://localhost:3000/api/auth/signin
+- admin@test.com
+- password
 
 SCHEMAS :
- COMMENTS: 
+ -COMMENTS: 
     const CommentSchema = new mongoose.Schema(
   {
     blogId: {
@@ -40,7 +40,7 @@ SCHEMAS :
     timestamps: true,
   },
 );
- POSTS:
+ -POSTS:
     const postSchema: Schema = new Schema(
   {
     title: {
@@ -83,7 +83,7 @@ SCHEMAS :
   },
   { timestamps: true }
 );
- TAGS:
+- TAGS:
   const TagSchema = new mongoose.Schema(
   {
     blogId: {
@@ -99,7 +99,7 @@ SCHEMAS :
     timestamps: true,
   },
 );
- USER: 
+- USER: 
    const userSchema = new mongoose.Schema(
   {
     username: {
@@ -122,4 +122,4 @@ SCHEMAS :
   },
   { timestamps: true },
 );
-VEICIET KODU IZPĒTI, KAD ATRODĀS MAPĪTĒS. "# murgs" 
+-VEICIET KODU IZPĒTI, KAD ATRODĀS MAPĪTĒS.  
